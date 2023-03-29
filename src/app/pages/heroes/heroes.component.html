@@ -22,12 +22,22 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>1</td>
-          <td>ironman</td>
-          <td>dinero</td>
-          <td>si</td>
-          <td>x</td>
+        <tr *ngFor="let heroe of heroes, let i = index">
+          <td>{{i+1}}</td>
+          <td>{{heroe.nombre}}</td>
+          <td>{{heroe.poder}}</td>
+          <td>
+            <span *ngIf="heroe.vivo" class="badge text-bg-success">Vivo</span>
+            <span *ngIf="!heroe.vivo" class="badge text-bg-danger">Muerto</span>
+          </td>
+          <td>
+            <button class="btn btn-info me-1" [routerLink]="['/heroe', heroe.id]">
+              <i class="fa fa-pen"></i>
+            </button>
+            <button class="btn btn-danger">
+              <i class="fa fa-trash"></i>
+            </button>
+          </td>
         </tr>
       </tbody>
     </table>
