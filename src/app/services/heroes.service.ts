@@ -45,6 +45,11 @@ export class HeroesService {
       )
   }
 
+  deleteHeroe(id: any) {
+    console.log('serv')
+    return this.http.delete(`${this.url}/heroes/${id}.json`);
+  }
+
   //convierto el OBJ en array
   private getArray(heroesObj:any) {
     const heroes: HeroeModel[] = [];
