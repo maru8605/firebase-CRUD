@@ -1,0 +1,76 @@
+<h1>Héroe <small>Nombre del héroe</small></h1>
+<hr>
+
+<div class="row">
+  <div class="col text-end">
+    <button class="btn btn-danger" routerLink="/heroes">
+      <i class="fa fa-arrow-left"></i>
+      Volver
+    </button>
+  </div>
+</div> 
+
+<div class="row">
+  <div class="col">
+    <form (ngSubmit)="guardar(f)" #f="ngForm">
+      <div class="form-group">
+        <label for="">Firebase Id</label>
+        <input type="text"
+               class="form-control"
+               placeholder="Firebase ID"
+               name="firebaseId"
+               [(ngModel)]="heroe.id"
+               disabled="disable">
+        <small class="form-text text-muted">Este es un campo autogenerado</small>
+      </div>
+
+      <div class="form-group">
+        <label for="">Nombre</label>
+        <input type="text"
+               class="form-control"
+               name="nombre"
+               [(ngModel)]="heroe.nombre"
+               placeholder="Nombre"
+               required>
+      </div>
+
+      <div class="form-group">
+        <label for="">Poder</label>
+        <input type="text"
+               class="form-control"
+               [(ngModel)]="heroe.poder"
+               name="poder"
+               placeholder="Poder">
+      </div>
+
+      <div class="form-group mt-3">
+        <label>Estado</label>
+        <br>
+        <button *ngIf="heroe.vivo"
+                (click)="heroe.vivo = false"
+                class="btn btn-outline-success w-50" 
+                type="button">
+          <i class="fa fa-smile-wink"></i>
+          Vivo
+        </button>
+        <button *ngIf="!heroe.vivo"
+                (click)="heroe.vivo = true"
+                class="btn btn-outline-danger w-50" 
+                type="button">
+          <i class="fa fa-dizzy"></i>
+          Muerto
+        </button>
+      </div>
+
+      <div class="form-group text-center mt-3">
+        <button class="btn btn-primary w-25" type="submit">
+          <i class="fa fa-save"></i>
+          Guardar
+        </button>
+      </div>
+
+    </form>
+  </div>
+</div>
+ 
+
